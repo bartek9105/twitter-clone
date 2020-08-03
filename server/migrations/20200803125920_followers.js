@@ -4,7 +4,8 @@ exports.up = function(knex) {
       table.increments()
       table.integer('user_id').unsigned()
       table.integer('following_id')
-      table.foreign('user_id').references('id').inTable('users')
+      table.foreign('user_id').references('id').inTable('users').onDelete('cascade')
+      table.foreign('following_id').references('id').inTable('users').onDelete('cascade')
     })
 };
 
