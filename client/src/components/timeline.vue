@@ -1,5 +1,6 @@
 <template>
   <div>
+    <tweetForm />
     <tweet
         v-for="tweet in tweets"
         :key="tweet.id"
@@ -11,10 +12,12 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import tweet from './tweet'
+import tweetForm from './tweetForm'
 
 export default {
   components: {
-    tweet
+    tweet,
+    tweetForm
   },
   methods: {
     ...mapActions(['getTweets'])

@@ -42,4 +42,17 @@ app.get('/api/v1', async (req, res, next) => {
     }
 })
 
+app.post('/api/v1', async (req, res, next) => {
+    try {
+        const { tweetBody } = req.body
+        await knex('tweets').insert({
+            user_id: 2,
+            body: tweetBody
+        })
+        res.send({ body: tweetBody })
+    } catch (error) {
+        console.log(error)
+    }
+})
+
 app.listen(3000)
