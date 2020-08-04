@@ -1,10 +1,17 @@
 <template>
-  <div>Home view</div>
+  <div>
+    <div>Home view</div>
+    <timeline />
+  </div>
 </template>
 
 <script>
+import timeline from '../components/timeline'
 
 export default {
-  name: 'Home'
+  name: 'Home',
+  components: {
+    timeline
+  }
 }
 </script>
