@@ -1,6 +1,5 @@
 <template>
   <div>
-    <div>Home view</div>
     <timeline />
   </div>
 </template>
