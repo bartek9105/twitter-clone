@@ -8,17 +8,6 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
-/*
-app.get('/api/v1', async (req, res, next) => {
-    try {
-        const users = await knex('users').select()
-        res.send(users)
-    } catch (error) {        
-        console.log(error)
-    }
-})
-*/
-
 app.get('/api/v1/:id', async (req, res, next) => {
     try {
         const user = await knex('users').where('id', req.params.id)
@@ -47,7 +36,8 @@ app.post('/api/v1', async (req, res, next) => {
         const { tweetBody } = req.body
         await knex('tweets').insert({
             user_id: 2,
-            body: tweetBody
+            body: tweetBody,
+            type: 'reply'
         })
         res.send({ body: tweetBody })
     } catch (error) {
