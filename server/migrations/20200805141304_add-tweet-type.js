@@ -5,5 +5,7 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  
+  return knex.schema.alterTable('tweets', col => {
+    col.dropColumn('type')
+  })
 };
