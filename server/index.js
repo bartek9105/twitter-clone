@@ -2,11 +2,20 @@ const express = require('express')
 const dotenv = require('dotenv')
 const cors = require('cors')
 dotenv.config()
-const dbConnection = require('./utils/dbConnection')
+const db = require('./utils/dbConnection')
 
 const app = express()
 app.use(express.json())
 app.use(cors())
+
+const dbConnection = async () => {
+    try {
+        await db.authenticate()
+        console.log('Connected to db')
+    } catch (error) {
+        console.error('Unable to connect', error)
+    }
+}
 
 dbConnection()
 

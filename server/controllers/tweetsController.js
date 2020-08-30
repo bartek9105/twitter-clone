@@ -1,6 +1,9 @@
+const Tweet = require('../models/Tweet')
+
 exports.getTweets = async (req, res, next) => {
     try {
-        res.send('Get route')
+        const tweets = await Tweet.findAll()
+        res.send(tweets)
     } catch (error) {
         console.log(error)
     }
@@ -8,7 +11,8 @@ exports.getTweets = async (req, res, next) => {
 
 exports.addTweet = async (req, res, next) => {
     try {
-        res.send('Add route')    
+        const tweet = await Tweet.create({ body: req.body.body })    
+        res.send(tweet)
     } catch (error) {
         console.log(error)
     }
