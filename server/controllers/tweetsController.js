@@ -11,8 +11,7 @@ exports.getTweets = async (req, res, next) => {
 
 exports.addTweet = async (req, res, next) => {
     try {
-        const tweet = await Tweet.create({ body: req.body.body })    
-        res.send(tweet)
+        await Tweet.create({ body: req.body.body, userId: req.body.userId })    
     } catch (error) {
         console.log(error)
     }

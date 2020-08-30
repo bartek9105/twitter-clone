@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const db = require('../utils/dbConnection')
+const db = require('../utils/dbConnection');
 
 const Tweet = db.define('Tweet', {
   body: {
@@ -8,8 +8,12 @@ const Tweet = db.define('Tweet', {
   }
 })
 
-Tweet.sync().then(() => {
+module.exports = Tweet
+
+const User = require('../models/User');
+
+Tweet.belongsTo(User)
+
+Tweet.sync({ force: true }).then(() => {
     console.log('Tweet model synced')
 })
-
-module.exports = Tweet

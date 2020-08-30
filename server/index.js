@@ -20,7 +20,9 @@ const dbConnection = async () => {
 dbConnection()
 
 const tweetsRoutes = require('./routes/tweets')
+const usersRoutes = require('./routes/users')
 
 app.use('/api/v1', tweetsRoutes)
+app.use('/api/v1', usersRoutes)
 
 app.listen(3000, () => console.log('Server started'))
