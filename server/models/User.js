@@ -17,7 +17,7 @@ module.exports = User
 const Tweet = require('../models/Tweet')
 
 User.hasMany(Tweet, {
-    foreignKey: 'userId'
+    foreignKey: 'UserId'
 })
 
 User.sync({force: true}).then(() => {
