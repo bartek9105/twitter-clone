@@ -14,6 +14,6 @@ const User = require('../models/User');
 
 Tweet.belongsTo(User)
 
-Tweet.sync({ force: true }).then(() => {
-    console.log('Tweet model synced')
+Tweet.sync({ alter: true }).then(() => {
+  console.log('Tweet model synced')
 })
